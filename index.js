@@ -10,17 +10,16 @@ class Formatter {
 
   static titleize(sentence){
     let wordsToIgnore = ['the', 'a', 'an', 'but', 'of', 'and', 'for', 'at', 'by', 'from']
-    let array = sentence.split(" ")
-    let capitalized = array.map(word => {
-      if(!wordsToIgnore.includes(word)){
+    let sent = sentence.split(' ')
+    let newCapArr = sent.map(word => {
+      if(!wordsToIgnore.includes(word)) {
         return this.capitalize(word)
+      } else {
+        return word
       }
-      else {return word}
     })
-    capitalized[0] = this.capitalize(capitalized[0])
-    return capitalized.join(" ")
- 
-  }
+return newCapArr.join(' ').replace(/^./g, this.capitalize )
+  } 
        
 
 
